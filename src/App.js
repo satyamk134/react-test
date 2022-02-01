@@ -5,10 +5,8 @@ import {
   Link
 } from "react-router-dom";
 import  HomeLayout from  './Layouts/HomeLayout'
-import './App.css';
 
-import BookSlot from './components/BookSlot';
-import Test from './components/TestComponent';
+import './App.css';
 function App() {
   return (
     <div className="App">

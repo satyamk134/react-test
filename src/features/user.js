@@ -1,47 +1,22 @@
 
 const initialUserState = {
-
-    isLoggedIn: false,
-    loginStatus:'initial',
-    signupStatus:'initial',
-    isSignedUp:false,
-    firstName: 'Sam',
-    lastName: 'Kumar',
-    role: 'customer',
-    emailId: 'satyam@gmail.com',
-    token: '',
-    isLoginPopupOpen: false,
-    isPickupSlotBooked:false,
-    currentUrl:""
+    projects:[],
+    times:[]
 }
 
 export default function loginReducer(state = initialUserState, action) {
     switch (action.type) {
-        case 'UPDATE_USER_STATE': {
-            console.log("came to update user state", action);
-            return { ...state, ...action.payload }
-        };
-        case 'SET_LOGIN_STATUS': {
-            return { ...state, ...action.payload}
-        };
-        case 'SIGNUP': {
-            return { ...state, firstName: action.payload.firstName }
+        
+        case 'Add_PROJECT':{
+            let projects = state.projects;
+            projects.push(action.payload.projectName);
+            return { ...state, projects: projects }
         }
-        case 'LOGIN_POPUP': {
-            return { ...state, isLoginPopupOpen: action.payload.isLoginPopupOpen }
+        case 'ADD_TIME_TRACK':{
+            let times = state.times;
+            times.push(action.payload);
+            return { ...state, times: times }
         }
-        case 'PICKUP_SLOT_BOOKED':{
-            return { ...state, isPickupSlotBooked: action.payload.isPickupSlotBooked }
-        }
-        case 'SET_SIGNUP_STATUS':{
-            console.log("payload",action.payload);
-            return {...state,...{isSignedUp:action.payload.isSignedUp,signupStatus:action.payload.signupStatus}};
-        }
-        case 'SIDE_OPTION_CHANGE':{
-            console.log("payload",action.payload);
-            return {...state,...{currentUrl:action.payload.currentUrl}};
-        }
-
         // Do something here based on the different types of actions
         default:
             // If this reducer doesn't recognize the action type, or doesn't

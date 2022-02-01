@@ -13,8 +13,8 @@ import Grid from '@mui/material/Grid';
 import { useHistory } from "react-router-dom";
 import { getGoogleAuthUrl, loginGoogleUser, getToken } from '../Services/HttpApiCall';
 import ReactDOM from "react-dom";
-import SideDrawer from './sideDrawer';
-import LandingPage from './landingPage'
+import BasicForm from './BasicForm'
+import AddProject from './AddProject';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,28 +26,18 @@ import { setBearerToken } from '../Services/config';
 const qs = require('qs');
 
 
-const selectUser = state => state.user;
 
 
 
-export default function Menu() {
-    let history = useHistory();
-    const goToLanding = ()=>{
-        history.push('/landing');
-    }
-    
-    return (
-        <div>
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={3}>
-                        <SideDrawer/>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <LandingPage />
-                    </Grid>
-                </Grid>
-            </Box>
-        </div>
-    );
+export default function LandingPage() {
+
+  let history = useHistory();
+  return (
+    <div>
+        <h1>Add a project will come </h1>    
+        <AddProject/>
+    </div>
+  );
 }
+
+const selectUser = state => state.user;
